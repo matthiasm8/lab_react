@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 7 : contrôler les effets de bords avec useEffect</title>
+    <!-- Lien vers React et ReactDOM depuis un CDN -->
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <!-- Lien vers Babel pour compiler JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        function Timer() {
+            const [seconds, setSeconds] = React.useState(0);
+            const [actif, setactif] = React.useState(true);
+    
+            React.useEffect(() => {
+                if (actif) {
+                    const interval = setInterval(() => {
+                        setSeconds(prevSeconds => prevSeconds + 1);
+                    }, 1000);
+    
+                    return () => clearInterval(interval);
+                }
+            }, [actif]);
+    
+            return (
+                <div>
+                    <h1>{seconds} secondes</h1>
+                    <button onClick={() => setactif(!actif)}>
+                        {actif ? "Arrêter" : "Reprendre"}
+                    </button>
+                </div>
+            );
+        }
+    
+        function App() {
+            return (
+                    <Timer />
+            );
+        }
+    
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    
+
+</body>
+
+</html>

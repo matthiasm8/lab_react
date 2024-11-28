@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX avec Babel</title>
+    <!-- Lien vers React et ReactDOM depuis un CDN -->
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <!-- Lien vers Babel pour compiler JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      // Code JSX va ici
+      // 1. Définir l'élément div (balise div html)
+      var texte = <div><b>Lab 3</b> - <i>Utiliser JSX avec <b>Babel</b></i></div>;
+      // 2. Rendre l'élément div créé dans l'élément root avec ReactDOM
+      var root = ReactDOM.createRoot(document.getElementById('root'));
+
+      root.render(texte);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un élément avec Vanilla JS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script>
+    // 1. Récupérer l'élément du document ayant pour id "root" à l'aide de document.getElementById(...)
+    var currentdiv =document.getElementById('root');
+    // 2. Créer un élément div à l'aide de document.createElement()
+    var newdiv = document.createElement('div');
+    // 3. Modifier l'élément créé element.textContent = “votre texte”
+    newdiv.textContent = 'Cours React - lab 1 - Créer un élément avec le DOM en Vanilla JS';
+    // 4. Ajouter l'élément créé à l'élément root rootElement.appendChild(element)
+    currentdiv.appendChild(newdiv);
+    </script>    
+  </body>
+</html>

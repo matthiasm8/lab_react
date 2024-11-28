@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4 : Astuces JSX</title>
+    <!-- Lien vers React et ReactDOM depuis un CDN -->
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <!-- Lien vers Babel pour compiler JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      // var currentdiv = document.getElementById('root');
+      // currentdiv.className='container';
+      let name = 'Matthias';
+      let contenu = <>
+      <div class="container"> <h1>{`Bienvenue à ${name}!`}</h1></div>
+      <div><p>JSX permet d'utiliser des
+      expressions JavaScript.</p> </div>
+      </>;
+      var root = ReactDOM.createRoot(document.getElementById('root'));
+
+      root.render(contenu);
+    </script>
+  </body>
+</html>

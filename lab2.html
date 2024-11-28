@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un élément avec React</title>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/javascript">
+      // 1. Créez un élément avec React.createElement
+      var texte = React.createElement('h1','','Hello, World!');
+      // 2. Utiliser ReactDOM.render(...) pour rendre l'élément créé dans l'élément root
+      var root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(texte);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 6 : gestion du state</title>
+  <!-- Lien vers React et ReactDOM depuis un CDN -->
+  <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <!-- Lien vers Babel pour compiler JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+
+    function App() {
+        const [selected, setSelected] = React.useState('');
+        return (
+            <div>
+                <ButtonGroup selected={selected} setSelected={setSelected} />
+            </div>
+        );
+    }
+
+    function ButtonGroup({ selected, setSelected }) {
+        const games = ["FC 25", "Fortnite", "TFT", "Rocket League"];
+
+        return (
+            <div>
+                {games.map((game, index) => (
+                    <Button
+                        key={index}
+                        name={game}
+                        isSelected={selected === game}
+                        onClick={() => setSelected(game)}
+                    />
+                ))}
+            </div>
+        );
+    }
+
+    function Button({ name, isSelected, onClick }) {
+        return (
+            <button
+                style={{
+                    backgroundColor: isSelected ? 'blue' : 'gray',
+                    padding: '10px 20px',
+                    margin: '5px',
+                }}
+                onClick={onClick}
+            >
+                {name}
+            </button>
+        );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+
+</script>
+
+</body>
+
+</html>
